@@ -61,7 +61,7 @@ def like_a_gauss(matrix):
     print_matrix(matrix)
 
 
-n = int(input("enter dimention of matrix:"))
+n = int(input("enter dimension of matrix:"))
 
 matrix_A = list()
 

@@ -89,8 +89,30 @@ def solution_checker(matrix):
             print("x%d is a free variable" % (i + 1))
 
 
-matrix2 = [[1, 3, 2, -4, 3], [-2, -1, 2, 6, 4], [0, -1, 3, -5, 1], [3, -4, 2, 5, -7],  [1, 2, -8, 6, 1]]
+n = int(input("enter dimension of matrix:"))
+
+input_matrix = list()
+
+for i in range(n):
+    row = [int(num) for num in input().split(" ")]
+    input_matrix.append(row)
+
+print("Now enter vector b:")
+
+input_vector = [int(num) for num in input().split(" ")]
+
+solution_checker(reduced_echelon_form(lower_triangle(
+    matrix_standardize_for_row_reduction(augmented_matrix_maker(input_matrix, input_vector)))))
+
+
+matrix2 = [[1, 3, 2, -4, 3], [-2, -1, 2, 6, 4], [0, -1, 3, -5, 1], [3, -4, 2, 5, -7], [1, 2, -8, 6, 1]]
 vector = [-3, 19, -2, -11, 4]
 solution_checker(reduced_echelon_form(lower_triangle(
     matrix_standardize_for_row_reduction(augmented_matrix_maker(matrix2, vector)))))
 
+matrix_1 = [[3, -2, 0, 0, 0, 0], [-2, 3, -2, 0, 0, 0], [0, -2, 2 / 3, -2, 0, 0], [0, 0, -2, 3, -2, 0],
+            [0, 0, 0, -2, 3, -2],
+            [0, 0, 0, 0, -2, 3]]
+vector_1 = [1, -1, -10 / 3, -1, -1, 1]
+solution_checker(reduced_echelon_form(lower_triangle(
+    matrix_standardize_for_row_reduction(augmented_matrix_maker(matrix_1, vector_1)))))
