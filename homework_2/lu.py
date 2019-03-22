@@ -1,10 +1,9 @@
 import numpy as np
 
 
-def calculate_l_matrix(matrix_a):
+def lu_factor(matrix_a):
     n = len(matrix_a)
     matrix_l = np.eye(n)
-    matrix_u = list(list())
     for i in range(n):
         row = i
         pivot = matrix_a[i][i]
@@ -19,6 +18,3 @@ def calculate_l_matrix(matrix_a):
         "matrix_u": matrix_a
     }
     return result_dic
-
-
-calculate_l_matrix(np.array([[1, 2], [1, 3]]))
